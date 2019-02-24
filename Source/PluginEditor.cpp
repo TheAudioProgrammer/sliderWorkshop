@@ -15,6 +15,11 @@
 SliderWorkshopAudioProcessorEditor::SliderWorkshopAudioProcessorEditor (SliderWorkshopAudioProcessor& p)
     : AudioProcessorEditor (&p), processor (p)
 {
+    gainSlider.setSliderStyle(Slider::SliderStyle::LinearVertical);
+    gainSlider.setRange(0.0, 1.0);
+    gainSlider.setValue(1.0);
+    addAndMakeVisible(gainSlider);
+    
     // Make sure that before the constructor has finished, you've set the
     // editor's size to whatever you need it to be.
     setSize (400, 300);
@@ -27,16 +32,10 @@ SliderWorkshopAudioProcessorEditor::~SliderWorkshopAudioProcessorEditor()
 //==============================================================================
 void SliderWorkshopAudioProcessorEditor::paint (Graphics& g)
 {
-    // (Our component is opaque, so we must completely fill the background with a solid colour)
-    g.fillAll (getLookAndFeel().findColour (ResizableWindow::backgroundColourId));
-
-    g.setColour (Colours::white);
-    g.setFont (15.0f);
-    g.drawFittedText ("Hello World!", getLocalBounds(), Justification::centred, 1);
+    g.fillAll(Colours::black);
 }
 
 void SliderWorkshopAudioProcessorEditor::resized()
 {
-    // This is generally where you'll want to lay out the positions of any
-    // subcomponents in your editor..
+    gainSlider.setBounds(getWidth() / 2 - 25, getHeight() / 2 - 50, 50, 100);
 }

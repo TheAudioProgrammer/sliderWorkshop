@@ -27,6 +27,8 @@ public:
     void resized() override;
 
 private:
+    Slider gainSlider;
+    
     // This reference is provided as a quick way for your editor to
     // access the processor object that created it.
     SliderWorkshopAudioProcessor& processor;

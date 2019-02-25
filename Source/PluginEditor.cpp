@@ -18,7 +18,7 @@ SliderWorkshopAudioProcessorEditor::SliderWorkshopAudioProcessorEditor (SliderWo
     gainSlider.setSliderStyle(Slider::SliderStyle::LinearVertical);
     gainSlider.setTextBoxStyle(Slider::NoTextBox, true, 0, 0);
     gainSlider.setRange(0.0, 1.0);
-    gainSlider.setValue(1.0);
+    gainSlider.setValue(0.5);
     gainSlider.addListener(this);
     addAndMakeVisible(gainSlider);
     

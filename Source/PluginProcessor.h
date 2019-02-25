@@ -55,7 +55,7 @@ public:
     void getStateInformation (MemoryBlock& destData) override;
     void setStateInformation (const void* data, int sizeInBytes) override;
     
-    double gainSliderValue { 1 };
+    double gainSliderValue { 0.5 };
     
 private:
     //==============================================================================

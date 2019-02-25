@@ -16,7 +16,8 @@
 //==============================================================================
 /**
 */
-class SliderWorkshopAudioProcessorEditor  : public AudioProcessorEditor
+class SliderWorkshopAudioProcessorEditor  : public AudioProcessorEditor,
+                                            public Slider::Listener
 {
 public:
     SliderWorkshopAudioProcessorEditor (SliderWorkshopAudioProcessor&);
@@ -25,6 +26,8 @@ public:
     //==============================================================================
     void paint (Graphics&) override;
     void resized() override;
+    
+    void sliderValueChanged(Slider* slider) override;
 
 private:
     Slider gainSlider;

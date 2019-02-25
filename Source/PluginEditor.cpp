@@ -16,17 +16,25 @@ SliderWorkshopAudioProcessorEditor::SliderWorkshopAudioProcessorEditor (SliderWo
     : AudioProcessorEditor (&p), processor (p)
 {
     gainSlider.setSliderStyle(Slider::SliderStyle::LinearVertical);
+    gainSlider.setTextBoxStyle(Slider::NoTextBox, true, 0, 0);
     gainSlider.setRange(0.0, 1.0);
     gainSlider.setValue(1.0);
+    gainSlider.addListener(this);
     addAndMakeVisible(gainSlider);
     
-    // Make sure that before the constructor has finished, you've set the
-    // editor's size to whatever you need it to be.
-    setSize (400, 300);
+    setSize (200, 200);
 }
 
 SliderWorkshopAudioProcessorEditor::~SliderWorkshopAudioProcessorEditor()
 {
+}
+
+void SliderWorkshopAudioProcessorEditor::sliderValueChanged(Slider* slider)
+{
+    if (slider == &gainSlider)
+    {
+        std::cout << gainSlider.getValue() << std::endl;
+    }
 }
 
 //==============================================================================

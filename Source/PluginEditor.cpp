@@ -33,7 +33,7 @@ void SliderWorkshopAudioProcessorEditor::sliderValueChanged(Slider* slider)
 {
     if (slider == &gainSlider)
     {
-        std::cout << gainSlider.getValue() << std::endl;
+        processor.gainSliderValue = gainSlider.getValue();
     }
 }
 

@@ -56,8 +56,6 @@ public:
     void setStateInformation (const void* data, int sizeInBytes) override;
     
     double gainSliderValue;
-    double gainInDb;
-    double dbDisplay;
     
 private:
     //==============================================================================

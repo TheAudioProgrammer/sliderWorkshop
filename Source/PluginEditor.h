@@ -17,8 +17,7 @@
 /**
 */
 class SliderWorkshopAudioProcessorEditor  : public AudioProcessorEditor,
-                                            public Slider::Listener,
-                                            public Timer
+                                            public Slider::Listener
 {
 public:
     SliderWorkshopAudioProcessorEditor (SliderWorkshopAudioProcessor&);
@@ -29,7 +28,6 @@ public:
     void resized() override;
     
     void sliderValueChanged(Slider* slider) override;
-    void timerCallback() override;
 
 private:
     Slider gainSlider;

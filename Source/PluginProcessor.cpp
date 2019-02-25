@@ -138,8 +138,7 @@ void SliderWorkshopAudioProcessor::processBlock (AudioBuffer<float>& buffer, Mid
     for (auto i = totalNumInputChannels; i < totalNumOutputChannels; ++i)
         buffer.clear (i, 0, buffer.getNumSamples());
     
-    gainInDb = Decibels::gainToDecibels(1 - gainSliderValue);
-    dbDisplay = Decibels::gainToDecibels(gainSliderValue);
+    auto gain = Decibels::decibelsToGain(gainSliderValue);
 
     for (int channel = 0; channel < totalNumInputChannels; ++channel)
     {
@@ -147,7 +146,7 @@ void SliderWorkshopAudioProcessor::processBlock (AudioBuffer<float>& buffer, Mid
         
         for (int sample = 0; sample < buffer.getNumSamples(); ++sample)
         {
-            channelData[sample] = buffer.getSample(channel, sample) * gainInDb;
+            channelData[sample] = buffer.getSample(channel, sample) * gain;
         }
     }
 }

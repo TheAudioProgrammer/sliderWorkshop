@@ -16,9 +16,12 @@ SliderWorkshopAudioProcessorEditor::SliderWorkshopAudioProcessorEditor (SliderWo
     : AudioProcessorEditor (&p), processor (p)
 {
     gainSlider.setSliderStyle(Slider::SliderStyle::LinearVertical);
-    gainSlider.setTextBoxStyle(Slider::NoTextBox, true, 0, 0);
-    gainSlider.setRange(0.0, 1.0);
-    gainSlider.setValue(0.5);
+    gainSlider.setColour(Slider::ColourIds::backgroundColourId, Colours::orange);
+    gainSlider.setColour(Slider::ColourIds::thumbColourId, Colours::red);
+    gainSlider.setColour(Slider::ColourIds::trackColourId, Colours::green);
+    gainSlider.setRange(Decibels::gainToDecibels(0.0),Decibels::gainToDecibels(1.0), 0.1);
+    gainSlider.setValue(Decibels::gainToDecibels(0.5));
+    gainSlider.setTextBoxStyle(Slider::TextBoxBelow, true, 100, 20);
     gainSlider.addListener(this);
     addAndMakeVisible(gainSlider);
     
@@ -41,6 +44,9 @@ void SliderWorkshopAudioProcessorEditor::sliderValueChanged(Slider* slider)
 void SliderWorkshopAudioProcessorEditor::paint (Graphics& g)
 {
     g.fillAll(Colours::black);
+    g.setFont(Font("Impact", 25.0, 0));
+    g.setColour(Colours::yellow);
+    g.drawText("Gain Slider", getWidth() / 2 - 40, 10, 100, 15, Justification::left);
 }
 
 void SliderWorkshopAudioProcessorEditor::resized()

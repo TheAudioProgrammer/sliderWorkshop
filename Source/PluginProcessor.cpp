@@ -144,7 +144,7 @@ void SliderWorkshopAudioProcessor::processBlock (AudioBuffer<float>& buffer, Mid
         
         for (int sample = 0; sample < buffer.getNumSamples(); ++sample)
         {
-            channelData[sample] = buffer.getSample(channel, sample) * Decibels::gainToDecibels(1 - gainSliderValue);
+            channelData[sample] = buffer.getSample(channel, sample) * gainSliderValue;
         }
     }
 }
